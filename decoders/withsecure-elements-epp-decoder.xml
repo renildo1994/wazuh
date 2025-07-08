@@ -1,0 +1,624 @@
+<!-- Local Decoders -->
+
+<!-- Modify it at your will. -->
+<!-- Copyright (C) 2015, Wazuh Inc. -->
+
+<!--
+  - Allowed static fields:
+  - location   - where the log came from (only on FTS)
+  - srcuser    - extracts the source username
+  - dstuser    - extracts the destination (target) username
+  - user       - an alias to dstuser (only one of the two can be used)
+  - srcip      - source ip
+  - dstip      - dst ip
+  - srcport    - source port
+  - dstport    - destination port
+  - protocol   - protocol
+  - id         - event id
+  - url        - url of the event
+  - action     - event action (deny, drop, accept, etc)
+  - status     - event status (success, failure, etc)
+  - extra_data - Any extra data
+-->
+
+<decoder name="local_decoder_example">
+    <program_name>local_decoder_example</program_name>
+</decoder>
+
+<!-- WithSecure Elements -->
+
+<decoder name="withsecure_elements">
+  <prematch>alertMeta@\d+</prematch>
+</decoder>
+
+<decoder name="withsecure_elements">
+  <prematch>alertMeta@\d+</prematch>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>eventType="(\.*)" |(\.*)$"</regex>
+  <order>eventType</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>deviceName="(\.*)" |(\.*)$"</regex>
+  <order>deviceName</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>deviceId="(\.*)" |(\.*)$"</regex>
+  <order>deviceId</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>suser="(\.*)" |(\.*)$"</regex>
+  <order>suser</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>deviceName="(\.*)" |(\.*)$"</regex>
+  <order>deviceName</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>accountName="(\.*)" |(\.*)$"</regex>
+  <order>accountName</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_profileName="(\.*)" |(\.*)$"</regex>
+  <order>details_profileName</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_path="(\.*)" |(\.*)$"</regex>
+  <order>details_path</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_process="(\.*)" |(\.*)$"</regex>
+  <order>details_process</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_alertType="(\.*)" |(\.*)$"</regex>
+  <order>details_alertType</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_throttledCount="(\.*)" |(\.*)$"</regex>
+  <order>details_throttledCount</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_profileId="(\.*)" |(\.*)$"</regex>
+  <order>details_profileId</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_profileVersion="(\.*)" |(\.*)$"</regex>
+  <order>details_profileVersion</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_hostIpAddress="(\.*)" |(\.*)$"</regex>
+  <order>details_hostIpAddress</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_userName="(\.*)" |(\.*)$"</regex>
+  <order>details_userName</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_clientTimestamp="(\.*)" |(\.*)$"</regex>
+  <order>details_clientTimestamp</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_url="(\.*)" |(\.*)$"</regex>
+  <order>details_url</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_description="(\.*)" |(\.*)$"</regex>
+  <order>details_description</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_reason="(\.*)" |(\.*)$"</regex>
+  <order>details_reason</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>message=(\.+)$</regex>
+  <order>message</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_systemDataTimeCreated="(\.*)" |(\.*)$"</regex>
+  <order>details_systemDataTimeCreated</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_systemDataEventId="(\.*)" |(\.*)$"</regex>
+  <order>details_systemDataEventId</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_systemDataOpcode="(\.*)" |(\.*)$"</regex>
+  <order>details_systemDataOpcode</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_systemDataProviderName="(\.*)" |(\.*)$"</regex>
+  <order>details_systemDataProviderName</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_systemDataProcessId="(\.*)" |(\.*)$"</regex>
+  <order>details_systemDataProcessId</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_systemDataChannel="(\.*)" |(\.*)$"</regex>
+  <order>details_systemDataChannel</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_systemDataLevel="(\.*)" |(\.*)$"</regex>
+  <order>details_systemDataLevel</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_systemDataComputer="(\.*)" |(\.*)$"</regex>
+  <order>details_systemDataComputer</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_systemDataRecordId="(\.*)" |(\.*)$"</regex>
+  <order>details_systemDataRecordId</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_incidentPublicId="(\.*)" |(\.*)$"</regex>
+  <order>details_incidentPublicId</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_fingerprint="(\.*)" |(\.*)$"</regex>
+  <order>details_fingerprint</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_initialDetectionTimestamp="(\.*)" |(\.*)$"</regex>
+  <order>details_initialDetectionTimestamp</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_risk="(\.*)" |(\.*)$"</regex>
+  <order>details_risk</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_categories="(\.*)" |(\.*)$"</regex>
+  <order>details_categories</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_incidentId="(\.*)" |(\.*)$"</regex>
+  <order>details_incidentId</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_resolution="(\.*)" |(\.*)$"</regex>
+  <order>details_resolution</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_userSam="(\.*)" |(\.*)$"</regex>
+  <order>details_userSam</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_targetFileVersion="(\.*)" |(\.*)$"</regex>
+  <order>details_targetFileVersion</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_targetVersionCompanyName="(\.*)" |(\.*)$"</regex>
+  <order>details_targetVersionCompanyName</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_parentPath="(\.*)" |(\.*)$"</regex>
+  <order>details_parentPath</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_targetFileDescription="(\.*)" |(\.*)$"</regex>
+  <order>details_targetFileDescription</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_targetSha256="(\.*)" |(\.*)$"</regex>
+  <order>details_targetSha256</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_targetProductName="(\.*)" |(\.*)$"</regex>
+  <order>details_targetProductName</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_parentPrevalence="(\.*)" |(\.*)$"</regex>
+  <order>details_parentPrevalence</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_ruleName="(\.*)" |(\.*)$"</regex>
+  <order>details_ruleName</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_targetReputation="(\.*)" |(\.*)$"</regex>
+  <order>details_targetReputation</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_ruleId="(\.*)" |(\.*)$"</regex>
+  <order>details_ruleId</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_ruleEvent="(\.*)" |(\.*)$"</regex>
+  <order>details_ruleEvent</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_parentReputation="(\.*)" |(\.*)$"</regex>
+  <order>details_parentReputation</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_targetCommandLine="(\.*)" |(\.*)$"</regex>
+  <order>details_targetCommandLine</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_targetPrevalence="(\.*)" |(\.*)$"</regex>
+  <order>details_targetPrevalence</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_targetPath="(\.*)" |(\.*)$"</regex>
+  <order>details_targetPath</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_targetCopyrightText="(\.*)" |(\.*)$"</regex>
+  <order>details_targetCopyrightText</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_targetSignatureSignerName="(\.*)" |(\.*)$"</regex>
+  <order>details_targetSignatureSignerName</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_parentCommandLine="(\.*)" |(\.*)$"</regex>
+  <order>details_parentCommandLine</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_targetSha1="(\.*)" |(\.*)$"</regex>
+  <order>details_targetSha1</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_targetProductVersion="(\.*)" |(\.*)$"</regex>
+  <order>details_targetProductVersion</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_requestType="(\.*)" |(\.*)$"</regex>
+  <order>details_requestType</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_initiator="(\.*)" |(\.*)$"</regex>
+  <order>details_initiator</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_initiatorHash="(\.*)" |(\.*)$"</regex>
+  <order>details_initiatorHash</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_actionType="(\.*)" |(\.*)$"</regex>
+  <order>details_actionType</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>infectedObject="(\.*)" |(\.*)$"</regex>
+  <order>infectedObject</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>malwareName="(\.*)" |(\.*)$"</regex>
+  <order>malwareName</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>action="(\.*)" |(\.*)$"</regex>
+  <order>action</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_infectionName="(\.*)" |(\.*)$"</regex>
+  <order>details_infectionName</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_reputation="(\.*)" |(\.*)$"</regex>
+  <order>details_reputation</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_accessFlags="(\.*)" |(\.*)$"</regex>
+  <order>details_accessFlags</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_prevalence="(\.*)" |(\.*)$"</regex>
+  <order>details_prevalence</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_accessOperation="(\.*)" |(\.*)$"</regex>
+  <order>details_accessOperation</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_infectionType="(\.*)" |(\.*)$"</regex>
+  <order>details_infectionType</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_modified="(\.*)" |(\.*)$"</regex>
+  <order>details_modified</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_accessorPath="(\.*)" |(\.*)$"</regex>
+  <order>details_accessorPath</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_availableActions="(\.*)" |(\.*)$"</regex>
+  <order>details_availableActions</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_created="(\.*)" |(\.*)$"</regex>
+  <order>details_created</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_scanOnClose="(\.*)" |(\.*)$"</regex>
+  <order>details_scanOnClose</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_recommendedAction="(\.*)" |(\.*)$"</regex>
+  <order>details_recommendedAction</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_sha1="(\.*)" |(\.*)$"</regex>
+  <order>details_sha1</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_size="(\.*)" |(\.*)$"</regex>
+  <order>details_size</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_accessorHash="(\.*)" |(\.*)$"</regex>
+  <order>details_accessorHash</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_targetData="(\.*)" |(\.*)$"</regex>
+  <order>details_targetData</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_vaultId="(\.*)" |(\.*)$"</regex>
+  <order>details_vaultId</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_filePath="(\.*)" |(\.*)$"</regex>
+  <order>details_filePath</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_processOperations="(\.*)" |(\.*)$"</regex>
+  <order>details_processOperations</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_registryOperations="(\.*)" |(\.*)$"</regex>
+  <order>details_registryOperations</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_fileScanningType="(\.*)" |(\.*)$"</regex>
+  <order>details_fileScanningType</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_creator="(\.*)" |(\.*)$"</regex>
+  <order>details_creator</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_creatorSha1="(\.*)" |(\.*)$"</regex>
+  <order>details_creatorSha1</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_appliedRule="(\.*)" |(\.*)$"</regex>
+  <order>details_appliedRule</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_deviceId="(\.*)" |(\.*)$"</regex>
+  <order>details_deviceId</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_deviceName="(\.*)" |(\.*)$"</regex>
+  <order>details_deviceName</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_detection="(\.*)" |(\.*)$"</regex>
+  <order>details_detection</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_rarity="(\.*)" |(\.*)$"</regex>
+  <order>details_rarity</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_isQuarantineAllowed="(\.*)" |(\.*)$"</regex>
+  <order>details_isQuarantineAllowed</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_oldValue="(\.*)" |(\.*)$"</regex>
+  <order>details_oldValue</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_isRemoteChange="(\.*)" |(\.*)$"</regex>
+  <order>details_isRemoteChange</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_newValue="(\.*)" |(\.*)$"</regex>
+  <order>details_newValue</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_settingName="(\.*)" |(\.*)$"</regex>
+  <order>details_settingName</order>
+</decoder>
+
+<decoder name="withsecure_elements_field">
+  <parent>withsecure_elements</parent>
+  <regex>details_restoreTimestamp="(\.*)" |(\.*)$"</regex>
+  <order>details_restoreTimestamp</order>
+</decoder>
