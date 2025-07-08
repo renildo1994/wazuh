@@ -1,1 +1,92 @@
+<!-- Local rules -->
 
+<!-- Modify it at your will. -->
+<!-- Copyright (C) 2015, Wazuh Inc. -->
+
+<!-- Example -->
+<group name="local,syslog,sshd,">
+
+  <!--
+  Dec 10 01:02:02 host sshd[1234]: Failed none for root from 1.1.1.1 port 1066 ssh2
+  -->
+  <rule id="100001" level="5">
+    <if_sid>5716</if_sid>
+    <srcip>1.1.1.1</srcip>
+    <description>sshd: authentication failed from IP 1.1.1.1.</description>
+    <group>authentication_failed,pci_dss_10.2.4,pci_dss_10.2.5,</group>
+  </rule>
+
+</group>
+
+<group name="local,syslog,epp,">
+
+  <rule id="100003" level="3">
+    <field name="eventType">webContentControl.blocked</field>
+    <field name="details_alertType">online_safety.category_page.block</field>
+    <description>WithSecure: Evento de Controle de Conteudo</description>
+  </rule>
+  
+  <rule id="100004" level="3">
+    <field name="eventType">reputationBasedBrowsing.blocked</field>
+    <field name="details_alertType">online_safety.suspicious_page.block</field>
+    <description>WithSecure: Evento de Controle de Conteudo baseado em Reputacao</description>
+  </rule>
+  
+  <rule id="100005" level="3">
+    <field name="eventType">applicationControl.blocked</field>
+    <field name="details_alertType">application_control.application_start.block</field>
+    <description>WithSecure: Evento de Controle de Aplicacao</description>
+  </rule>
+  
+  <rule id="100006" level="3">
+    <field name="eventType">tamperProtection</field>
+    <description>WithSecure: Evento de Proteção Contra Interferencia</description>
+  </rule>
+  
+  <rule id="100007" level="5">
+    <field name="eventType">edr</field>
+    <description>WithSecure: Evento de EDR</description>
+  </rule>
+  
+  <rule id="100008" level="3">
+    <field name="eventType">systemEventsLog.reported</field>
+    <description>WithSecure: Evento de Sistema</description>
+  </rule>
+  
+  <rule id="100009" level="7">
+    <field name="eventType">fileScanning</field>
+    <description>WithSecure: Evento de Real Time</description>
+  </rule>
+  
+  <rule id="100010" level="3">
+    <field name="eventType">dataGuard</field>
+    <description>WithSecure: Evento de DataGuard</description>
+  </rule>
+
+  <rule id="100011" level="3">
+    <field name="details_alertType">activity_monitor.client_protection</field>
+    <description>WithSecure: Evento de Reverse</description>
+  </rule>
+
+  <rule id="100013" level="3">
+    <field name="eventType">deviceControl</field>
+    <description>WithSecure: Evento de Controle de Dispositivos</description>
+  </rule>
+
+
+  <rule id="100014" level="3">
+    <field name="eventType">deepGuard</field>
+    <description>WithSecure: Evento de DeepGuard</description>
+  </rule>
+
+  <rule id="100015" level="7">
+    <field name="eventType">manualScanning</field>
+    <description>WithSecure: Evento de Verificacao Manual/Agendada</description>
+  </rule>
+
+  <rule id="100016" level="3">
+    <field name="eventType">setting</field>
+    <description>WithSecure: Evento de Alteração de Configuração do Produto</description>
+  </rule>
+
+</group>
